@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model museumOwner {
+  id           String  @id @default(cuid())
+  firstName    String?
+  lastName     String?
+  email        String? @unique
+  mobileNum    String? @unique
+  password     String?
+  organisation String?
+  museum       museum?
+  token        String?
+}
+
+model museum {
+  id           String       @id @default(cuid()) @unique
+  owner        museumOwner? @relation(fields: [onwerID], references: [id])
+  onwerID      String?    @unique
+  museumName   String?
+  tags         String[]
+  inTime       String?
+  outTime      String?
+  aboutMuseum  String?
+  ARAnchorList String[]
+  poiList      String[]
+}
+
+model tourist {
+  id        String     @id @default(cuid())
+  firstName String?
+  lastName  String?
+  email     String?    @unique
+  mobileNum String?    @unique
+  password  String?
+  comments  comments[]
+  token     String?
+}
+
+model comments {
+  id          String    @id @default(cuid())
+  tourist     tourist?  @relation(fields: [touristID], references: [id])
+  touristID   String?
+  museumID    String?
+  commentBody String?
+  datePosted  DateTime?
+  rating      Float?
+}
