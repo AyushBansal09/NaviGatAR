@@ -1,4 +1,19 @@
-# Indoor AR Navigation
+# NaviGatAR – Indoor AR Navigation
+
+## iPhone app (current)
+
+The working app is the native iOS app in [`ios/`](ios/README.md), written in
+SwiftUI, ARKit and RealityKit. It runs on iOS 18 and later. Open
+`ios/NaviGatAR.xcodeproj` in Xcode and follow [ios/README.md](ios/README.md)
+to install it on an iPhone.
+
+---
+
+## Legacy prototype (Flutter + Node.js)
+
+The original cross-platform prototype is kept below for reference. It is no
+longer maintained.
+
 
 ## Project Overview
 This project is designed to facilitate indoor navigation using augmented reality (AR) technology on mobile devices. It leverages both ARCore (Android) and ARKit (iOS) to provide a robust AR experience.

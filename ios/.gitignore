@@ -1,0 +1,7 @@
+# Xcode
+xcuserdata/
+DerivedData/
+*.xcuserstate
+# SwiftPM (core tests)
+.build/
+.swiftpm/
